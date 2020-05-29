@@ -6,7 +6,7 @@
     <p class="text-center"><%= @spell.kind %></p>
     <p class="text-center"><%= @spell.level %></p>
 
-    <%= cl_image_tag @spell.photo.key , height: 300, width: 400, crop: :fill %>
+    <%#= cl_image_tag @spell.photo.key , height: 300, width: 400, crop: :fill %>
 
     <% @spell.doses.each do |dose| %>
       <%= dose.instructions %>
