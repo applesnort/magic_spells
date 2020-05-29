@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'doses/new'
   root "spells#index", as: :home
+  get 'doses/new'
   resources :spells do
     resources :doses, only: [:new, :create]
   end
