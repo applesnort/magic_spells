@@ -6,6 +6,8 @@
     <p class="text-center"><%= @spell.kind %></p>
     <p class="text-center"><%= @spell.level %></p>
 
+    <%= cl_image_tag @spell.photo.key %>
+
     <% @spell.doses.each do |dose| %>
       <%= dose.instructions %>
     <% end %>

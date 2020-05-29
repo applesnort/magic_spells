@@ -10,6 +10,7 @@ class SpellsController < ApplicationController
 
   def create
     @spell = Spell.new(spell_params)
+    
     if @spell.save
       redirect_to spells_path
     else
@@ -39,7 +40,7 @@ class SpellsController < ApplicationController
   private
 
   def spell_params
-    params.require(:spell).permit(:name, :kind, :level)
+    params.require(:spell).permit(:name, :kind, :level, :photo)
   end
 
   def set_spells
