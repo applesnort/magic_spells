@@ -2,6 +2,7 @@ class SpellsController < ApplicationController
   before_action :set_spells, only: [:show, :edit, :update, :destroy]
   def index
     @spells = Spell.all
+    photo
   end
 
   def new
@@ -47,6 +48,10 @@ class SpellsController < ApplicationController
 
   def set_spells
     @spell = Spell.find(params[:id])
+  end
+
+  def photo
+    # return Unsplash::Photo.search(kind).first[:urls][:raw]
   end
   
 end

@@ -42,7 +42,7 @@ BENEFITS = ["increased flexibility",
 7.times do
   c = Spell.create!(
     name: "#{Faker::GreekPhilosophers.name} #{Faker::Hipster.sentence(word_count: 1)}",
-    kind: Faker::Company.bs,
+    kind: Faker::Hacker.adjective,
     level: rand(1..1300).to_i
     )
   rand(2..6).times do 
@@ -50,7 +50,7 @@ BENEFITS = ["increased flexibility",
     name: "#{Faker::Dessert.flavor} #{Faker::Hipster.sentence(word_count: 2)}",
     potency: rand(1..53),
     rarity: RARITY.sample,
-    effect: SIDE_EFFECTS.sample(rand(1..8)).join(", "),
+    effect: SIDE_EFFECTS.sample(rand(2..5)).join(", "),
     benefit: BENEFITS.sample(rand(1..3)).join(", ")
     )
   d = Dose.create(spell: c, ingredient: i, instructions: "#{Faker::Hipster.sentence(word_count: 2, supplemental: false, random_words_to_add: 2)}")

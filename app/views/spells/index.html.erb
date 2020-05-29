@@ -1,4 +1,19 @@
 <h1>Spells#index</h1>
+
+<div class="fluid-container d-flex justify-content-start flex-wrap">
+    <%# <ul> %>
+    <% @spells.each do |spell| %>
+    <div>
+      <a href="#">
+          <li class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= Unsplash::Photo.search(spell.kind).first[:urls][:raw] %>)">
+            <%= spell.kind %>
+          </li>
+      </a>
+    </div>
+    <% end %>
+    <%# </ul> %>
+</div>
+
 <div class="container">
   <div class="row">
     <ul>
