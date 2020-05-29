@@ -1,5 +1,18 @@
-<h1>Spells#index</h1>
+<h2>List of Spells</h2>
 
+<div class="container">
+  <div class="row">
+    <ul>
+      <% @spells.each do |spell| %>
+        <li>
+          <%= link_to spell.name, spell_path(spell) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<h2>Spell Categories</h2>
 <div class="fluid-container d-flex justify-content-start flex-wrap">
     <%# <ul> %>
     <% @spells.each do |spell| %>
@@ -14,14 +27,3 @@
     <%# </ul> %>
 </div>
 
-<div class="container">
-  <div class="row">
-    <ul>
-      <% @spells.each do |spell| %>
-        <li>
-          <%= link_to spell.name, spell_path(spell) %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
