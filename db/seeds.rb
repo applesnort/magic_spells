@@ -41,7 +41,7 @@ BENEFITS = ["increased flexibility",
 
 7.times do
   c = Spell.create!(
-    name: "#{Faker::GreekPhilosophers.name} #{Faker::Construction.subcontract_category} #{Faker::Hipster.sentence(word_count: 3)}",
+    name: "#{Faker::GreekPhilosophers.name} #{Faker::Hipster.sentence(word_count: 1)}",
     kind: Faker::Company.bs,
     level: rand(1..1300).to_i
     )

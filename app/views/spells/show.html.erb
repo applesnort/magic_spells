@@ -1,5 +1,10 @@
 <a href="<%= spells_path %>" type="button" class="btn btn-outline-secondary">< Return to Spells</a>
-<h1>Spells#show</h1>
+<h2><%= @spell.name %></h2>
+<div class="container">
+  <div class="row">
+    <%= link_to 'Edit', edit_spell_path(@spell) %>
+  </div>
+</div>
 <div class="container">
   <div class="row justify-content-center">
   <ul>
@@ -10,7 +15,7 @@
 <hr>
 <div class="container">
   <div class="row d-flex justify-content-center">
-    <h2>Required Ingredients and Dosage</h2>
+    <h3>Required Ingredients and Dosage</h3>
     <div class="div">
       <a href="/spells/<%= @spell.id %>/doses/new" type="button" class="btn btn-primary btn-lg">+ Add Dosage</a>
     </div>
@@ -31,7 +36,18 @@
   </div>
 
   <%= link_to 'Back', spells_path %> |
-  <%= link_to 'Edit', edit_spell_path(@spell) %>
+  
+</div>
+
+<div class="container">
+  <div class="row">
+    <h3>Side Effects</h3>
+    <ul>
+    <% @spell.ingredients.each do |item| %>
+      <li><%= item.effect %></li>
+    <% end %>
+    </ul>
+  </div>
 </div>
 
 <%# <table class="table">
