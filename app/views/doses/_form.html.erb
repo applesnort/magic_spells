@@ -1,0 +1,5 @@
+<%= simple_form_for [ @spell, @dose ] do |f| %>
+  <%= f.input :instructions %>
+  <%= f.association :ingredient %>
+  <%= f.submit "Add dosage instructions", class: "btn btn-primary" %>
+<% end %>

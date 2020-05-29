@@ -1,2 +1,12 @@
 <h1>Spells#index</h1>
-<p>Find me in app/views/spells/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <ul>
+      <% @spells.each do |spell| %>
+        <li>
+          <%= link_to spell.name, spell_path(spell) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

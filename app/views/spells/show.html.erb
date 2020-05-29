@@ -1,2 +1,17 @@
 <h1>Spells#show</h1>
-<p>Find me in app/views/spells/show.html.erb</p>
+<hr>
+<div class="container">
+  <div class="row">
+    <p class="text-center"><%= @spell.name %></p>
+    <p class="text-center"><%= @spell.kind %></p>
+    <p class="text-center"><%= @spell.level %></p>
+
+    <% @spell.doses.each do |dose| %>
+      <%= dose.instructions %>
+    <% end %>
+  </div>
+
+  <%= link_to 'Edit', edit_spell_path(@spell) %> |
+  <%= link_to 'Add dose', new_spell_dose_path(@spell) %> |
+  <%= link_to 'Back', spells_path %>
+</div>
