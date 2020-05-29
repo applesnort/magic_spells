@@ -2,6 +2,10 @@
   <%= f.input :name %>
   <%= f.input :kind %>
   <%= f.input :level %>
+  <% if @spell.photo.attached? %>
+  <%= cl_image_tag @spell.photo.key , height: 300, width: 400, crop: :fill %>
+  <% else %>
   <%= f.input :photo, as: :file %>
-  <%= f.submit "Add Spell", class: "btn btn-primary" %>
+  <% end %>
+  <%= f.submit "Update Spell", class: "btn btn-primary" %>
 <% end %>
