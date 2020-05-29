@@ -24,6 +24,8 @@ class SpellsController < ApplicationController
   def update
     @spell = Spell.find(params[:id])
     @spell.update(spell_params)
+
+    redirect_to spells_path(@spell)
   end
 
   def show

@@ -1,19 +1,66 @@
+<a href="<%= spells_path %>" type="button" class="btn btn-outline-secondary">< Return to Spells</a>
 <h1>Spells#show</h1>
+<div class="container">
+  <div class="row justify-content-center">
+  <ul>
+    <li><strong>Spell: </strong><%= @spell.name %></li>
+    <li><strong>Type: </strong><%= @spell.kind %></li>
+    <li><strong>Power Level: </strong><%= @spell.level %></li>
+  </ul>
+<hr>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <h2>Required Ingredients and Dosage</h2>
+    <div class="div">
+      <a href="/spells/<%= @spell.id %>/doses/new" type="button" class="btn btn-primary btn-lg">+ Add Dosage</a>
+    </div>
+  </div>
+</div>
 <hr>
 <div class="container">
   <div class="row">
-    <p class="text-center"><%= @spell.name %></p>
-    <p class="text-center"><%= @spell.kind %></p>
-    <p class="text-center"><%= @spell.level %></p>
-
+    <%= link_to 'Add dose', new_spell_dose_path(@spell) %>
+  </div>
+</div>
     <%#= cl_image_tag @spell.photo.key , height: 300, width: 400, crop: :fill %>
-
+  <ul>
     <% @spell.doses.each do |dose| %>
-      <%= dose.instructions %>
+      <li><%= dose.ingredient.name %> => <%= dose.instructions %></li>
     <% end %>
+  </ul>
   </div>
 
-  <%= link_to 'Edit', edit_spell_path(@spell) %> |
-  <%= link_to 'Add dose', new_spell_dose_path(@spell) %> |
-  <%= link_to 'Back', spells_path %>
+  <%= link_to 'Back', spells_path %> |
+  <%= link_to 'Edit', edit_spell_path(@spell) %>
 </div>
+
+<%# <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table> %>
