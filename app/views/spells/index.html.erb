@@ -16,11 +16,11 @@
 <div class="fluid-container d-flex justify-content-start flex-wrap">
     <%# <ul> %>
     <% @spells.each do |spell| %>
-    <% photo = Unsplash::Photo.search(spell.kind).first[:urls][:raw] %>
-    <% bg = "https://images.unsplash.com/photo-1590542981892-84397854f875?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" %>
+    <%# photo = Unsplash::Photo.search(spell.kind).first[:urls][:raw] %>
+    <% bg = "https://images.unsplash.com/photo-1590542981892-84397854f875?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60" %>
     <div>
       <a href="#">
-          <li class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= photo.nil? ? bg : photo %>)">
+          <li class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1590542981892-84397854f875?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60)">
             <%= spell.kind %>
           </li>
       </a>
