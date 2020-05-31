@@ -1,5 +1,6 @@
 class SpellsController < ApplicationController
   before_action :set_spells, only: [:show, :edit, :update, :destroy]
+  
   def index
     @spells = Spell.all
   end
