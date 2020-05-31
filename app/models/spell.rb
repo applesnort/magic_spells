@@ -15,7 +15,8 @@ class Spell < ApplicationRecord
   end
 
   def self.photo_keyword(spell)
-    return spell.ingredients.each {|item| item}.first.benefit.split(' ').sample
+    keyword = spell.ingredients.each {|item| item}.first.benefit.split(' ').sample
+    return keyword unless nil
   end
 
   def self.unsplash_photo(spell)
