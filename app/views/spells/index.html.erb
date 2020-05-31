@@ -17,6 +17,7 @@
                   <p class="card-text"><%= spell.ingredients.each {|item| item}.first.name %></p>
                   <p class="card-text"><%= spell.ingredients.each {|item| item}.first.benefit %></p>
                   <p class="card-text"><%= spell.ingredients.each {|item| item}.first.effect  %></p>
+                  <p class="card-text"><%= Spell.photo_keyword(spell)  %></p>
                   <p class="card-text"><small class="text-muted">Created: <%= spell.updated_at %></small></p>
                 </div>
               </div>
