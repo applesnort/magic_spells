@@ -1,11 +1,27 @@
-<h2>List of Spells</h2>
 
 <div class="container">
+  <h2>List of Spells</h2>
   <div class="row">
-    <ul>
+    <ul style="list-style: none">
       <% @spells.each do |spell| %>
         <li>
-          <%= link_to spell.name, spell_path(spell) %>
+          <%#= link_to spell.name, spell_path(spell) %>
+          <div class="card mb-3" style="max-width: 900px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="..." class="card-img" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"><%= spell.name %></h5>
+                  <p class="card-text"><%= spell.ingredients.each {|item| item}.first.name %></p>
+                  <p class="card-text"><%= spell.ingredients.each {|item| item}.first.benefit %></p>
+                  <p class="card-text"><%= spell.ingredients.each {|item| item}.first.effect  %></p>
+                  <p class="card-text"><small class="text-muted">Created: <%= spell.updated_at %></small></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </li>
       <% end %>
     </ul>
@@ -28,4 +44,3 @@
     <% end %>
     <%# </ul> %>
 </div>
-

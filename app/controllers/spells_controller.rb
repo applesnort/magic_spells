@@ -2,6 +2,7 @@ class SpellsController < ApplicationController
   before_action :set_spells, only: [:show, :edit, :update, :destroy]
   def index
     @spells = Spell.all
+    @keyword = Spell.photo_keyword
     photo
   end
 
@@ -39,6 +40,15 @@ class SpellsController < ApplicationController
 
     redirect_to spells_path
   end
+
+  def categoires
+    @spells = Spell.where
+    Spell.all.each do |item|
+      @categories << item.kind
+    end
+    return @categoires
+  end
+  
 
   private
 

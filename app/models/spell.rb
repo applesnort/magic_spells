@@ -8,10 +8,13 @@ class Spell < ApplicationRecord
   validates :kind, presence: true
   validates :level, presence: true
 
-  def categories
+  def self.categories
     array = []
     self.all.each { |item| array << item.kind }
     return array.uniq
   end
-  
+
+  def self.photo_keyword(spell)
+    return spell.ingredients.each {|item| item}.first.benefit.split(' ').sample
+  end
 end
