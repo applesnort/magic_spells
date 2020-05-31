@@ -9,14 +9,15 @@
           <div class="card mb-3" style="max-width: 900px;">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img src="<%= Unsplash::Photo.search(Spell.photo_keyword(spell)).first[:urls][:raw] %>" class="card-img" alt="...">
+                <% photo = Spell.photo_keyword(spell) %>
+                <img src="<%= Unsplash::Photo.search(Spell.photo_keyword(spell)).first[:urls][:raw] %>" class="card-img" it="card-thumbnail" alt="<%= photo.nil? ? "" : photo %>">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title"><%= spell.name %></h5>
-                  <p class="card-text"><%= spell.ingredients.each {|item| item}.first.name %></p>
-                  <p class="card-text"><%= spell.ingredients.each {|item| item}.first.benefit %></p>
-                  <p class="card-text"><%= spell.ingredients.each {|item| item}.first.effect  %></p>
+                  <h4 class="card-title"><%= spell.name %></h4>
+                  <p class="card-text"><strong>Key Ingredient: </strong><%= spell.ingredients.each {|item| item}.first.name %></p>
+                  <p class="card-text"><strong>Benefit: </strong><%= spell.ingredients.each {|item| item}.first.benefit %></p>
+                  <p class="card-text"><strong>Side Effects: </strong><%= spell.ingredients.each {|item| item}.first.effect  %></p>
                   <p class="card-text"><small class="text-muted">Created: <%= spell.updated_at %></small></p>
                 </div>
               </div>
