@@ -10,7 +10,7 @@
             <div class="row no-gutters">
               <div class="col-md-4">
                 <% photo = Spell.photo_keyword(spell) %>
-                <img src="<%= Unsplash::Photo.search("flowers")[:urls][:raw] %>" class="card-img" it="card-thumbnail" alt="<%= photo.nil? ? "" : photo %>">
+                <img src="<%= Unsplash::Photo.search("flowers").first[:urls][:raw] %>" class="card-img" it="card-thumbnail" alt="<%= photo.nil? ? "" : photo %>">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
